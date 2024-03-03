@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function NewTodoForm(props) {
+export const NewTodoForm: React.FC<{addTodo: Function}> = (props) => {
     const [description, setDescription] = useState('');
     const [assigned, setAssigned] = useState('');
 
@@ -30,12 +30,10 @@ function NewTodoForm(props) {
             </div>
             <div className='mb-3'>
                 <label className='form-label'>Description</label>
-                <textarea type='text' className='form-control' rows={3} onChange={e => setDescription(e.target.value)} required value={description}></textarea>
+                <textarea  className='form-control' rows={3} onChange={e => setDescription(e.target.value)} required value={description}></textarea>
             </div>
             <button type='button' className='btn btn-primary mt-3' onClick={submitTodo}>Add To Do</button>
         </div>
     )
 
 }
-
-export default NewTodoForm;
